@@ -42,3 +42,5 @@ next-env.d.ts
 
 # raw source media (large)
 /public/media/raw/*.mp4
+/video-build/*.mp4
+!/video-build/tod-oims-test.mp4

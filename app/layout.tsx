@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TODSOCKS — 2011 оноос Монголын дулаан",
-  description: "Монгол ноосоор хийсэн оймс. Хонины сүргээс таны хөл хүртэлх аялал.",
+  title: "ТОД ОЙМС — Алхам бүрт хамт",
+  description: "ТОД ОЙМС: 2011 оноос хойш. Алхам бүрт хамт.",
 };
 
 export const viewport: Viewport = {

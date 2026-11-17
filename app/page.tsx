@@ -1,7 +1,7 @@
 import ScrollSequence from "@/components/ScrollSequence";
 import BrandEnd from "@/components/BrandEnd";
 
-const AI_BADGE = "Бодит бүтээгдэхүүн · Орчин, хөдөлгөөнийг AI-аар бүтээв";
+const AI_BADGE = "Бодит бүтээгдэхүүн, дэлгүүр, савлагаан дээр суурилсан AI хөдөлгөөн";
 
 const NAV = ["Эмэгтэй", "Эрэгтэй", "Хүүхэд", "Ноолуур", "Ноос", "Коллекц"];
 
@@ -19,8 +19,7 @@ export default function Home() {
   return (
     <>
       <header className="site-header">
-        {/* TODO: бодит лого (SVG) оруулах */}
-        <a href="/" className="logo">TODSOCKS</a>
+        <a href="/" className="logo">ТОД ОЙМС</a>
         <nav aria-label="Үндсэн цэс">
           <ul>
             {NAV.map((item) => (

@@ -11,7 +11,6 @@ const SLOGAN = "Алхам бүрт хамт";
 
 /**
  * Hero-гийн дараах брэндийн төгсгөл: лого гэнэт гарч ирээд, уриа үг үгээрээ гарна.
- * TODO: жинхэнэ лого ирэхээр <div className="brand-logo">-г <img src="/images/logo.svg"> болгоно.
  */
 export default function BrandEnd() {
   const ref = useRef<HTMLElement>(null);
@@ -36,7 +35,8 @@ export default function BrandEnd() {
   return (
     <section ref={ref} className="brand-end" aria-label={SLOGAN}>
       <div className="brand-glow" aria-hidden="true" />
-      <div className="brand-logo">TODSOCKS</div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="brand-logo" src="/images/logo.png" alt="ТОД ОЙМС" width={1200} height={603} />
       <p className="brand-slogan">
         {SLOGAN.split(" ").map((w, i) => (
           <span key={i}>{w}</span>
