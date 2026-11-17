@@ -1,6 +1,6 @@
 import ScrollSequence from "@/components/ScrollSequence";
 
-const AI_BADGE = "Бодит зураг дээр суурилсан AI хөдөлгөөн";
+const AI_BADGE = "Бодит бүтээгдэхүүн · Орчин, хөдөлгөөнийг AI-аар бүтээв";
 
 const NAV = ["Эмэгтэй", "Эрэгтэй", "Хүүхэд", "Ноолуур", "Ноос", "Коллекц"];
 
@@ -12,24 +12,6 @@ const STATS = [
   { value: "100+", label: "ажилтан" },
   { value: "14,500 м²", label: "талбай" },
   { value: "ISO 9001", label: "чанарын удирдлага" },
-];
-
-const SCENES = [
-  {
-    scene: "scene1",
-    title: "Ноос",
-    text: "Бүх зүйл Монголын малчдын хонины сүргээс эхэлдэг.",
-  },
-  {
-    scene: "scene2",
-    title: "Самнах",
-    text: "Түүхий ноосыг цэвэрлэж, самнаж, ээрэхэд бэлдэнэ.",
-  },
-  {
-    scene: "scene3",
-    title: "Оймс",
-    text: "Тэгээд дулаан, бат бөх оймс болж таны хөлд хүрнэ.",
-  },
 ];
 
 export default function Home() {
@@ -50,17 +32,9 @@ export default function Home() {
       </header>
 
       <main>
-        <ScrollSequence scene="hero" scrollVh={250} label="Нүүр хэсгийн хөдөлгөөнт зураг" badge={AI_BADGE}>
+        <ScrollSequence scene="hero" scrollVh={350} label="Оймсны хөдөлгөөнт зураг" badge={AI_BADGE}>
           <h1>2011 оноос Монголын дулааныг дэлгэрүүлэв</h1>
         </ScrollSequence>
-
-        {SCENES.map((s, i) => (
-          <ScrollSequence key={s.scene} scene={s.scene} label={s.title} badge={AI_BADGE}>
-            <p className="eyebrow">0{i + 1}</p>
-            <h2>{s.title}</h2>
-            <p className="lead">{s.text}</p>
-          </ScrollSequence>
-        ))}
 
         <section className="stats" aria-label="Тоон үзүүлэлт">
           {STATS.map((s) => (
