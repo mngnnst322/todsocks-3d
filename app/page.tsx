@@ -1,4 +1,5 @@
 import ScrollSequence from "@/components/ScrollSequence";
+import BrandEnd from "@/components/BrandEnd";
 
 const AI_BADGE = "Бодит бүтээгдэхүүн · Орчин, хөдөлгөөнийг AI-аар бүтээв";
 
@@ -35,6 +36,8 @@ export default function Home() {
         <ScrollSequence scene="hero" scrollVh={350} label="Оймсны хөдөлгөөнт зураг" badge={AI_BADGE}>
           <h1>2011 оноос Монголын дулааныг дэлгэрүүлэв</h1>
         </ScrollSequence>
+
+        <BrandEnd />
 
         <section className="stats" aria-label="Тоон үзүүлэлт">
           {STATS.map((s) => (
