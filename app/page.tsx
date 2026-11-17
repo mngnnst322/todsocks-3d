@@ -1,69 +1,101 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import ScrollSequence from "@/components/ScrollSequence";
+
+const AI_BADGE = "Бодит зураг дээр суурилсан AI хөдөлгөөн";
+
+const NAV = ["Эмэгтэй", "Эрэгтэй", "Хүүхэд", "Ноолуур", "Ноос", "Коллекц"];
+
+// Зөвхөн баталгаажсан тоонууд. Тайлбар бичвэрийг өөрөө шалгаж засаарай.
+const STATS = [
+  { value: "2011", label: "оноос хойш" },
+  { value: "16", label: "улс" },
+  { value: "18", label: "дэлгүүр" },
+  { value: "100+", label: "ажилтан" },
+  { value: "14,500 м²", label: "талбай" },
+  { value: "ISO 9001", label: "чанарын удирдлага" },
+];
+
+const SCENES = [
+  {
+    scene: "scene1",
+    title: "Ноос",
+    text: "Бүх зүйл Монголын малчдын хонины сүргээс эхэлдэг.",
+  },
+  {
+    scene: "scene2",
+    title: "Самнах",
+    text: "Түүхий ноосыг цэвэрлэж, самнаж, ээрэхэд бэлдэнэ.",
+  },
+  {
+    scene: "scene3",
+    title: "Оймс",
+    text: "Тэгээд дулаан, бат бөх оймс болж таны хөлд хүрнэ.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <header className="site-header">
+        {/* TODO: бодит лого (SVG) оруулах */}
+        <a href="/" className="logo">TODSOCKS</a>
+        <nav aria-label="Үндсэн цэс">
+          <ul>
+            {NAV.map((item) => (
+              <li key={item}>
+                <a href="#products">{item}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <ScrollSequence scene="hero" scrollVh={250} label="Нүүр хэсгийн хөдөлгөөнт зураг" badge={AI_BADGE}>
+          <h1>2011 оноос Монголын дулааныг дэлгэрүүлэв</h1>
+        </ScrollSequence>
+
+        {SCENES.map((s, i) => (
+          <ScrollSequence key={s.scene} scene={s.scene} label={s.title} badge={AI_BADGE}>
+            <p className="eyebrow">0{i + 1}</p>
+            <h2>{s.title}</h2>
+            <p className="lead">{s.text}</p>
+          </ScrollSequence>
+        ))}
+
+        <section className="stats" aria-label="Тоон үзүүлэлт">
+          {STATS.map((s) => (
+            <div key={s.value} className="stat">
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </div>
+          ))}
+        </section>
+
+        <section id="products" className="products" aria-label="Бүтээгдэхүүн">
+          <h2>Бүтээгдэхүүн</h2>
+          <div className="grid">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="card">
+                <div className="card-img" />
+                <p>Бүтээгдэхүүн {i + 1}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="site-footer">
+        {/* TODO: бодит мэдээллээр солих */}
+        <div>
+          <p><strong>Хаяг:</strong> [хаяг]</p>
+          <p><strong>Утас:</strong> [утас]</p>
+          <p><strong>Имэйл:</strong> [имэйл]</p>
+          <p><strong>Ажлын цаг:</strong> [цаг]</p>
+        </div>
+        <p className="disclaimer">
+          Энэ хуудасны хөдөлгөөнт дүрслэлүүдийг бодит гэрэл зураг дээр суурилан AI ашиглан хөдөлгөсөн болно.
+        </p>
+      </footer>
+    </>
   );
 }
