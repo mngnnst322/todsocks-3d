@@ -121,6 +121,8 @@ export default function ScrollSequence({
 
     mm.add(
       {
+        // "all" заавал байх ёстой: нэг ч нөхцөл таарахгүй бол gsap функцийг ажиллуулдаггүй
+        all: "all",
         reduce: "(prefers-reduced-motion: reduce)",
         mobile: MOBILE_QUERY,
       },
